@@ -365,22 +365,18 @@
          }
       },
       {
-         "apiVersion":"[variables('computeApiVersion')]",
+         "apiVersion":"2016-04-30-preview",
          "type":"Microsoft.Compute/virtualMachines",
          "name":"[variables('masterVMName')]",
          "location":"[resourceGroup().location]",
          "dependsOn":[
             "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]",
-            "[concat('Microsoft.Compute/availabilitySets/', variables('avSetName'))]",
             "Microsoft.Compute/disks/masterdatadisk0",
             "Microsoft.Compute/disks/masterdatadisk1",
             "Microsoft.Compute/disks/masterdatadisk2",
             "Microsoft.Compute/disks/masterdatadisk3"
          ],
          "properties":{
-            "availabilitySet":{
-               "id":"[resourceId('Microsoft.Compute/availabilitySets', variables('avSetName'))]"
-            },
             "hardwareProfile":{
                "vmSize":"[parameters('headNodeSize')]"
             },
@@ -516,7 +512,7 @@
          }
       },
       {
-         "apiVersion":"[variables('computeApiVersion')]",
+         "apiVersion":"2016-04-30-preview",
          "type":"Microsoft.Compute/virtualMachines",
          "name":"[concat(variables('workerVMName'), copyindex())]",
          "location":"[resourceGroup().location]",
