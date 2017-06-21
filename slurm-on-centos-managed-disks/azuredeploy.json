@@ -522,11 +522,7 @@
          "location":"[resourceGroup().location]",
          "dependsOn":[
             "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), 'worker', copyindex())]",
-            "[concat('Microsoft.Compute/availabilitySets/', variables('avSetName'))]",
-            "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 0))]",
-            "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 1))]",
-            "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 2))]",
-            "[concat('Microsoft.Compute/disks/', 'workerdatadisk', add(mul(copyindex(), variables('workerDiskCount')), 3))]"
+            "[concat('Microsoft.Compute/availabilitySets/', variables('avSetName'))]"
          ],
          "copy":{
             "name":"foo",
