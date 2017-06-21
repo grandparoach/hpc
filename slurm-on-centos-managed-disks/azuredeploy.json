@@ -411,7 +411,7 @@
       {
          "apiVersion":"2015-06-15",
          "type":"Microsoft.Compute/virtualMachines/extensions",
-         "name":"[concat(variables('masterVMName'), '/Installation')]",
+         "name":"[concat(variables('masterVMName'), '/ext')]",
          "location":"[resourceGroup().location]",
          "dependsOn":[
             "[concat('Microsoft.Compute/virtualMachines/', variables('masterVMName'))]"
@@ -432,7 +432,7 @@
       {
          "apiVersion":"2015-06-15",
          "type":"Microsoft.Compute/virtualMachines/extensions",
-         "name":"[concat(variables('workerVMName'), copyindex(), '/Installation')]",
+         "name":"[concat(variables('workerVMName'), copyindex(), '/ext')]",
          "location":"[resourceGroup().location]",
          "dependsOn":[
             "[concat('Microsoft.Compute/virtualMachines/', variables('workerVMName'), copyindex())]"
